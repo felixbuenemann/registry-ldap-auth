@@ -4,6 +4,10 @@
 
 This image provides an LDAP authentication proxy for a [Docker registry](https://github.com/docker/docker-registry). Therefore it uses an [NGINX web server](https://github.com/nginx/nginx) with builtin [LDAP support](https://github.com/kvspb/nginx-auth-ldap) and SSL. It is based on [h3nrik/nginx-ldap](https://registry.hub.docker.com/u/h3nrik/nginx-ldap/).
 
+The sources including the sample files used in this description can be found on [GitHub](https://github.com/g17/registry-ldap-auth).
+
+The Docker image can be downloaded at [Docker Hub](https://registry.hub.docker.com/u/h3nrik/registry-ldap-auth/).
+
 ## Prerequisites
 
 The authentication proxy works with different LDAP servers like ApacheDS or OpenLDAP. It also works with Active Directory. So a container with a running LDAP server is expected. If you need information about creating a container with a test LDAP server please refer to [h3nrik/nginx-ldap](https://registry.hub.docker.com/u/h3nrik/nginx-ldap/).
