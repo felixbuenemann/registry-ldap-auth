@@ -16,7 +16,7 @@ A running Docker registry container is required. Details about the Docker regist
 
 You need a valid SSL certificate. It must be known by a trusted CA! No self-signed ones are allowed. Theoretically you could also use self-signed certificates. Therefore the Docker daemon need to be started with the *--insecure-registry* command line parameter. But this is not recommended.
 
-If you want to use an LDAP host that is not represented by a Docker container you might want to have a look at the [Docker ambassador pattern](https://docs.docker.com/articles/ambassador_pattern_linking/).
+If you plan to use an LDAP host that is not represented by a Docker container you might want to have a look at the [Docker ambassador pattern](https://docs.docker.com/articles/ambassador_pattern_linking/).
 
 ## Installation
 
