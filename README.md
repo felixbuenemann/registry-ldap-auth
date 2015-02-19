@@ -37,7 +37,7 @@ Assuming your running Docker registry container is named *registry* and the LDAP
 
 3. Create a Docker container for the authentication proxy. The proxy container expects the registry container to be linked with the name *docker-registry*. The used NGINX web server configuration can be found [in the config folder](/config/).
 
-		docker run --name registry-ldap-auth --link ldap:ldap --link registry:docker-registry -v /ssl/cert/path:/etc/ssl/docker:ro -v `pwd`/sample-ldap.conf:/etc/nginx/ldap.conf:ro -p 80:80 -p 443:443 -p 5000:5000 -d h3nrik/registry-ldap-auth
+		docker run --name registry-ldap-auth --link ldap:ldap --link registry:docker-registry -v /ssl/cert/path:/etc/ssl/docker:ro -v `pwd`/sample-ldap.conf:/etc/nginx/ldap.conf:ro -p 443:443 -p 5000:5000 -d h3nrik/registry-ldap-auth
 
 ## Licenses
 
