@@ -24,7 +24,7 @@ Assuming your running Docker registry container is named *registry* and the LDAP
 
 1. The SSL certificate files must be copied into a local folder (e.g. /ssl/cert/path). It will be mounted as a volume into the proxy server later. The certificate file must be named *docker-registry.crt* and the private key file *docker-registry.key*.
 
-2. Create an LDAP configuration file named *ldap.conf*. A [sample-ldap.conf](/sample-ldap.conf) file is provided with the image sources. It could look like:
+2. Create an LDAP configuration file named *ldap.conf*. A [sample-ldap.conf](https://github.com/g17/registry-ldap-auth/blob/master/sample-ldap.conf) file is provided with the image sources. It could look like:
 
 		url ldap://ldap/dc=example,dc=com?samaccountname?sub?(objectClass=user);
 		binddn ldap@example.com;
@@ -35,7 +35,7 @@ Assuming your running Docker registry container is named *registry* and the LDAP
 		require valid_user;
 		satisfy all;	
 
-3. Create a Docker container for the authentication proxy. The proxy container expects the registry container to be linked with the name *docker-registry*. The used NGINX web server configuration can be found [in the config folder](/config/).
+3. Create a Docker container for the authentication proxy. The proxy container expects the registry container to be linked with the name *docker-registry*. The used NGINX web server configuration can be found [in the config folder](https://github.com/g17/registry-ldap-auth/blob/master/config).
 
 		docker run --name registry-ldap-auth --link ldap:ldap --link registry:docker-registry -v /ssl/cert/path:/etc/ssl/docker:ro -v `pwd`/sample-ldap.conf:/etc/nginx/ldap.conf:ro -p 443:443 -p 5000:5000 -d h3nrik/registry-ldap-auth
 
