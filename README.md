@@ -1,12 +1,12 @@
-# ![NGINX logo](https://raw.github.com/g17/registry-ldap-auth/master/images/NginxLogo.gif)
+# ![NGINX logo](https://raw.github.com/felixbuenemann/registry-ldap-auth/master/images/NginxLogo.gif)
 
 ## Introduction
 
-This image provides an LDAP and Active Directory authentication proxy for a [Docker registry](https://hub.docker.com/_/registry/). It uses an [NGINX web server](https://github.com/nginx/nginx) with builtin [LDAP](https://github.com/kvspb/nginx-auth-ldap) and SSL support. It is based on [h3nrik/nginx-ldap](https://registry.hub.docker.com/u/h3nrik/nginx-ldap/).
+This image provides an LDAP and Active Directory authentication proxy for a [Docker registry](https://hub.docker.com/_/registry/). It uses an [NGINX web server](https://github.com/nginx/nginx) with builtin [LDAP](https://github.com/kvspb/nginx-auth-ldap) and SSL support. It is based on [felixbuenemann/nginx-ldap](https://hub.docker.com/r/felixbuenemann/nginx-ldap/).
 
 The sources including the sample files used in this description can be found on [GitHub](https://github.com/g17/registry-ldap-auth).
 
-The Docker image can be downloaded at [Docker Hub](https://registry.hub.docker.com/u/h3nrik/registry-ldap-auth/).
+The Docker image can be downloaded at [Docker Hub](https://hub.docker.com/r/felixbuenemann/registry-ldap-auth/).
 
 ## Prerequisites
 
@@ -35,9 +35,9 @@ Assuming your running Docker registry container is named *registry* and the LDAP
 		require valid_user;
 		satisfy all;	
 
-3. Create a Docker container for the authentication proxy. The proxy container expects the registry container to be linked with the name *docker-registry*. The used NGINX web server configuration can be found [in the config folder](https://github.com/g17/registry-ldap-auth/blob/master/config).
+3. Create a Docker container for the authentication proxy. The proxy container expects the registry container to be linked with the name *docker-registry*. The used NGINX web server configuration can be found [in the config folder](https://github.com/felixbuenemann/registry-ldap-auth/blob/master/config).
 
-		docker run --name registry-ldap-auth --link ldap:ldap --link registry:docker-registry -v /ssl/cert/path:/etc/ssl/docker:ro -v `pwd`/sample-ldap.conf:/etc/nginx/ldap.conf:ro -p 443:443 -p 5000:5000 -d h3nrik/registry-ldap-auth
+		docker run --name registry-ldap-auth --link ldap:ldap --link registry:docker-registry -v /ssl/cert/path:/etc/ssl/docker:ro -v `pwd`/sample-ldap.conf:/etc/nginx/ldap.conf:ro -p 443:443 -p 5000:5000 -d felixbuenemann/registry-ldap-auth
 
 ## Licenses
 

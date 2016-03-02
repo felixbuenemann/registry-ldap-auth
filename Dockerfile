@@ -1,5 +1,5 @@
-FROM h3nrik/nginx-ldap
+FROM felixbuenemann/nginx-ldap
 
-MAINTAINER Henrik Sachse <t3x7m3@posteo.de>
+MAINTAINER Felix Buenemann <felix.buenemann@gmail.com>
 
 ADD config/* /etc/nginx/
